@@ -13,12 +13,13 @@ gulp.task('default', function() {
     console.error('option --src required')
     return;
   }
-
+var chapitre = 1;
   gulp.src('./'+argv.src+'/*.md')
     .pipe(rename(function (path) {
-      var chapitre = path.basename.substr(0,3)*1;
+      //var chapitre = path.basename.substr(0,3)*1;
+      //chapitre = (chapitre == 0) ? 1 : chapitre - 10;
       //chapitre = (chapitre > 500) ? '' : chapitre + ': ';
-      path.basename = chapitre + '. ' + path.basename.substr(3);
+      path.basename = chapitre++ + '. ' + path.basename.substr(3);
       //path.basename = path.basename.substr(3);
     }))
     .pipe(h1())
