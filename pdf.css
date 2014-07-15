@@ -13,6 +13,7 @@ body{
 }
 pre{
   background-color: #eee;
+  font-family: "Courier New";
   padding: 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -21,6 +22,7 @@ pre{
 }
 code{
   background-color: #eee;
+  font-family: "Courier New";
   padding: 1px 3px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
