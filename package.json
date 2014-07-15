@@ -1,7 +1,7 @@
 {
   "name": "bretzel",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Créer un répertoire avec des fichiers .md numérotés.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,15 @@
     "gulp-concat": "^2.2.0",
     "yargs": "^1.2.1",
     "event-stream": "^3.1.5",
-    "gulp-markdown-pdf": "^0.2.0"
-  }
+    "gulp-markdown-pdf": "^0.3.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lmtm/bretzel"
+  },
+  "bugs": {
+    "url": "https://github.com/lmtm/bretzel/issues"
+  },
+  "homepage": "https://github.com/lmtm/bretzel"
 }
