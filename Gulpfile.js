@@ -27,7 +27,8 @@ var chapitre = 1;
     .pipe(images())
     .pipe(markdownpdf({
       runningsPath: __dirname + '/runnings.js',
-      cssPath: __dirname + '/pdf.css'
+      cssPath: __dirname + '/pdf.css',
+      paperOrientation: argv.orientation
     }))
     .pipe(gulp.dest('.'));
 

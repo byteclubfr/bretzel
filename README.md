@@ -8,3 +8,13 @@ Créer un répertoire avec des fichiers .md numérotés.
 Et gulp --src livre
 
 Et hop un zouli livre.pdf
+
+### Ajouter un titre de document
+
+`DOC_TITLE="Mon titre" gulp --src livre`
+
+### Modifier l'orientation
+
+Paysage : `gulp --landscape --src livre`
+
+Portrait (par défaut) : `gulp --portrait --src livre`
