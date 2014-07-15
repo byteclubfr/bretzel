@@ -6,7 +6,6 @@ var markdownpdf = require('gulp-markdown-pdf');
 var argv = require('yargs').argv;
 var path = require('path');
 
-
 gulp.task('default', function() {
 
   if (!argv.src) {
@@ -37,10 +36,12 @@ var chapitre = 1;
 
 var h1 = function() {
   return es.map(function(file, cb){
-    file.contents = Buffer.concat([
-      new Buffer('\n# ' + path.basename(file.path, '.md') + '\n\n'),
-      file.contents
-    ]);
+    if (argv.autoH1 !== false) {
+      file.contents = Buffer.concat([
+        new Buffer('\n# ' + path.basename(file.path, '.md') + '\n\n'),
+        file.contents
+      ]);
+    }
     cb(null, file);
   });
 };

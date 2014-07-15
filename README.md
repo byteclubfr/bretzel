@@ -18,3 +18,9 @@ Et hop un zouli livre.pdf
 Paysage : `gulp --landscape --src livre`
 
 Portrait (par défaut) : `gulp --portrait --src livre`
+
+### Désactiver les titres H1 par défaut
+
+Option `--no-auto-h1`
+
+Note : il faudra alors ajouter des titres H1 dans chaque slide
