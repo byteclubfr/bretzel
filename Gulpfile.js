@@ -22,6 +22,7 @@ var chapitre = 1;
       //path.basename = path.basename.substr(3);
     }))
     .pipe(h1())
+    .pipe(pgbrk())
     .pipe(concat(argv.src + '.md'))
     .pipe(images())
     .pipe(markdownpdf({
@@ -32,6 +33,18 @@ var chapitre = 1;
     .pipe(gulp.dest('.'));
 
 });
+
+
+var pgbrk = function () {
+  return es.map(function (file, cb) {
+    if (file.contents) {
+      var sContents = file.contents.toString('utf8');
+      sContents = sContents.replace(/^\s*(…|\.\.\.)\/(…|\.\.\.)\s*$/mg, '<p class="pgbrk">…/…</p>');
+      file.contents = new Buffer(sContents);
+    }
+    cb(null, file);
+  })
+}
 
 
 var h1 = function() {

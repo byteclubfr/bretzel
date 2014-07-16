@@ -13,14 +13,16 @@ Et hop un zouli livre.pdf
 
 `DOC_TITLE="Mon titre" gulp --src livre`
 
-### Modifier l'orientation
+### Options
 
-Paysage : `gulp --landscape --src livre`
+* **Modifier l'orientation**
+  * Paysage : `--orientation=landscape`
+  * Portrait (par défaut) : `--orientation=portrait`
+* **Désactiver le chapitrage automatique**
+  * `--no-auto-h1`
+  * Note : il faudra alors ajouter des titres H1 dans chaque slide
 
-Portrait (par défaut) : `gulp --portrait --src livre`
+### Markdown
 
-### Désactiver les titres H1 par défaut
-
-Option `--no-auto-h1`
-
-Note : il faudra alors ajouter des titres H1 dans chaque slide
+* Il s'agit du `Github Flavored Markdown` avec coloration syntaxique
+* Possibilité de forcer un page-break en ajoutant `…/…` ou `.../...` dans le document
