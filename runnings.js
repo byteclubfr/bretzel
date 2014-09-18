@@ -14,7 +14,7 @@ exports.footer = {
   height: "1cm",
   contents: function(pageNum, numPages) {
     return '<div style="color:#888;font-size:8pt;font-family:Georgia, Times, serif;padding-top:.5cm;">'
-      + '<p style="position:absolute;top:0;left:0;"><strong>LMTM</strong> - 2 quai André Rhuys 44200 Nantes, France - Tél: +33.6 14 66 76 41 - contact@lmtm.fr</p>'
+      + '<p style="position:absolute;top:0;left:0;"><strong>LMTM</strong> - 5 bd Vincent Gache 44200 Nantes, France - Tél: +33.6 14 66 76 41 - contact@lmtm.fr</p>'
       + '<p style="position:absolute;top:0;right:0;">Page ' + pageNum + ' sur ' + numPages + '</p>'
       + '</div>';
   }
