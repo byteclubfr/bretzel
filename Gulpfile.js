@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var es = require('event-stream');
+var map = require('map-stream');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var markdownpdf = require('gulp-markdown-pdf');
@@ -9,12 +9,13 @@ var path = require('path');
 gulp.task('default', function() {
 
   if (!argv.src) {
-    console.error('option --src required')
+    console.error('option --src required');
     return;
   }
-var chapitre = 1;
-  gulp.src('./'+argv.src+'/*.md')
-    .pipe(rename(function (path) {
+
+  var chapitre = 1;
+  gulp.src('./' + argv.src + '/*.md')
+    .pipe(rename(function(path) {
       //var chapitre = path.basename.substr(0,3)*1;
       //chapitre = (chapitre == 0) ? 1 : chapitre - 10;
       //chapitre = (chapitre > 500) ? '' : chapitre + ': ';
@@ -34,21 +35,19 @@ var chapitre = 1;
 
 });
 
-
-var pgbrk = function () {
-  return es.map(function (file, cb) {
+var pgbrk = function() {
+  return map(function(file, cb) {
     if (file.contents) {
       var sContents = file.contents.toString('utf8');
       sContents = sContents.replace(/^\s*(…|\.\.\.)\/(…|\.\.\.)\s*$/mg, '<p class="pgbrk">…/…</p>');
       file.contents = new Buffer(sContents);
     }
     cb(null, file);
-  })
-}
-
+  });
+};
 
 var h1 = function() {
-  return es.map(function(file, cb){
+  return map(function(file, cb){
     if (argv.autoH1 !== false) {
       file.contents = Buffer.concat([
         new Buffer('\n# ' + path.basename(file.path, '.md') + '\n\n'),
@@ -60,7 +59,7 @@ var h1 = function() {
 };
 
 var images = function() {
-  return es.map(function(file, cb){
+  return map(function(file, cb){
     file.contents = Buffer.concat([
       file.contents,
       // LMTM

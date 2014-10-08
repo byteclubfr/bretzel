@@ -10,11 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "gulp": "^3.6.2",
-    "gulp-rename": "^1.2.0",
     "gulp-concat": "^2.2.0",
-    "yargs": "^1.2.1",
-    "event-stream": "^3.1.5",
-    "gulp-markdown-pdf": "^0.3.0"
+    "gulp-markdown-pdf": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "map-stream": "^0.1.0",
+    "yargs": "^1.2.1"
   },
   "devDependencies": {},
   "repository": {
