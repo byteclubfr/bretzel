@@ -1,28 +1,55 @@
-## Utilisation
+# Bretzel
 
-Créer un répertoire avec des fichiers .md numérotés.
+Convert an ordered collection of markdown files into a PDF.
 
-* livre/001 chapitre 1.md
-* livre/002 chapitre 2.md
+Ideal to easily generate books or slides.
 
-Et gulp --src livre
+## Usage
 
-Et hop un zouli livre.pdf
+Create a directory containing .md files with *exactly* 3 leading numbers :
 
-### Ajouter un titre de document
+* book/001 Great introduction.md
+* book/002 Fantastic story.md
+* book/003 Tragic ending.md
 
-`DOC_TITLE="Mon titre" gulp --src livre`
+Then run `gulp --src book`
+
+And magic! You get a nice book.pdf
+
+### Tree variants
+
+You can have holes in the ordering, the header counter is adjusted for you at rendering time :
+
+* book/001 Great introduction.md
+* book/042 Fantastic story.md
+* book/210 Epilogue.md
+* book/211 Tragic ending.md
+
+Subdirectories let you regroup similar pages by topic :
+
+* book/01 - Middle Ages/001 Huge Battle.md
+* book/01 - Middle Ages/003 Tall Castle.md
+* book/02 - Victorian Times/001 Steam Machine.md
+* book/02 - Victorian Times/345 Magic Train.md
+
+When unsure about the ouput result, look at the feedback given on stdout.
+
+### Add a title in the header of each pages
+
+`DOC_TITLE="My wonderful title" gulp --src book`
+
+See system.env.DOC_TITLE inside runnings.js
 
 ### Options
 
-* **Modifier l'orientation**
-  * Paysage : `--orientation=landscape`
-  * Portrait (par défaut) : `--orientation=portrait`
-* **Désactiver le chapitrage automatique**
+* **Format**
+  * landscape : `--orientation=landscape`
+  * portrait (default) : `--orientation=portrait`
+* **Disable automatic title**
   * `--no-auto-h1`
-  * Note : il faudra alors ajouter des titres H1 dans chaque slide
+  * Note : in this case you need to add H1 tags on each page.
 
-### Markdown
+### Markdown support
 
-* Il s'agit du `Github Flavored Markdown` avec coloration syntaxique
-* Possibilité de forcer un page-break en ajoutant `…/…` ou `.../...` dans le document
+* `Github Flavored Markdown` is used for syntax highlighting.
+* Intentional page-break are triggered by adding `…/…` or `.../...` to the document.
