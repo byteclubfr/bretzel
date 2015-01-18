@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var map = require('map-stream');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
+var replace = require('gulp-replace');
 var markdownpdf = require('gulp-markdown-pdf');
 var argv = require('yargs').argv;
 var path = require('path');
@@ -24,6 +25,14 @@ gulp.task('default', function() {
     .pipe(pgbrk())
     .pipe(concat(argv.src + '.md'))
     .pipe(images())
+    // turn image relative paths to absolute to work with markdownpdf
+    .pipe(replace(/(!\[.*?\]\()(.+?)(\))/g, function(whole, start, url, end) {
+      var newUrl = url;
+      if (!url.match(/^http/)) {
+        newUrl = path.resolve('./' + argv.src + '/' + url);
+      }
+      return start + newUrl + end;
+    }))
     .pipe(markdownpdf({
       runningsPath: __dirname + '/runnings.js',
       cssPath: __dirname + '/pdf.css',

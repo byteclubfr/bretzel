@@ -13,6 +13,7 @@
     "gulp-concat": "^2.2.0",
     "gulp-markdown-pdf": "^0.3.0",
     "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.1",
     "map-stream": "^0.1.0",
     "yargs": "^1.2.1"
   },
